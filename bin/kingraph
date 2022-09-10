@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 const render = require('../lib/render');
 const all = Promise.all.bind(Promise);
-
+const fs = require('fs');
+const path = require('path');
 const cli = require('meow')(`
   Usage:
     $ kingraph INPUT.yaml
@@ -9,7 +10,7 @@ const cli = require('meow')(`
   Options:
     -h, --help         show usage information
     -v, --version      print version info and exit
-    -F, --format=svg   format (dot, svg)
+    -F, --format=svg   format (svg, png, dot)
 `, {
     boolean: ['help', 'version'],
     string: ['format'],
@@ -26,7 +27,16 @@ require('read-input')(cli.input)
 
         return render(input, { format, async: true })
         .then(result => {
-            process.stdout.write(result);
+            let fileOutput = cli.input[0];
+            let fileFormat = cli.flags.format;
+            fileOutput = fileOutput.substr(0, fileOutput.lastIndexOf(".")) + `.${fileFormat}`;
+            fs.writeFile(fileOutput, result, err=>{
+                if (err){
+                    console.error(err)
+                    return
+                }
+                console.log(`File exported to: '${path.join(process.cwd(), fileOutput)}'`)
+            })
         });
     }));
 })
