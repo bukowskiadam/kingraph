@@ -7,6 +7,8 @@
   - [children2](#children2)
   - [house](#house)
   - [families](#families)
+  - [date](#date)
+  - [city](#city)
 - **[people](#person)**
   - [name](#name)
   - [fullname](#fullname)
@@ -100,6 +102,16 @@ The name of the house. If given, then a box will be drawn around the family and 
 > `families[].families` (Family[])
 
 You can nest families inside other families. See [house](#house) for an example.
+
+### date
+
+The date the family was formed. Acceptable formats
+- MM-DD-YYYY
+- YYYY
+
+### city
+
+The city the family lives in.
 
 ## Person
 
