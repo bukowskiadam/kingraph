@@ -8,11 +8,12 @@
     },
     "dependencies": {
         "js-yaml": "3.13.1",
-        "meow": "3.7.0",
+        "meow": "^4.0.0",
         "object-assign": "4.1.1",
         "read-input": "0.3.1",
         "strip-indent": "3.0.0",
         "svg2png": "4.1.1",
+        "uuid": "^9.0.0",
         "viz.js": "1.8.1"
     },
     "browser": {

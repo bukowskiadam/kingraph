@@ -3,7 +3,9 @@ const render = require('../lib/render');
 const all = Promise.all.bind(Promise);
 const fs = require('fs');
 const path = require('path');
-const cli = require('meow')(`
+const meow = require('meow');
+const { version } = require('os');
+const cli = meow(`
   Usage:
     $ kingraph INPUT.yaml
 
@@ -12,10 +14,10 @@ const cli = require('meow')(`
     -v, --version      print version info and exit
     -F, --format=svg   format (svg, png, dot)
 `, {
-    boolean: ['help', 'version'],
-    string: ['format'],
-    alias: {
-        h: 'help', v: 'version', F: 'format'
+    flags: {
+        help: {type: 'boolean', alias: 'r'},
+        version: {type: 'boolean', alias: 'v'},
+        format: {type: 'string', alias: 'F'}
     }
 });
 
