@@ -1,8 +1,8 @@
 {
     "name": "kingraph",
     "description": "Plots family trees using JavaScript and Graphviz",
-    "version": "0.2.1",
-    "author": "Rico Sta. Cruz <rico@ricostacruz.com> (http://ricostacruz.com); updated by Alexander Willner (https://github.com/AlexanderWillner/kingraph)",
+    "version": "0.3.0",
+    "author": "Rico Sta. Cruz <rico@ricostacruz.com> (http://ricostacruz.com);",
     "bin": {
         "kingraph": "bin/kingraph"
     },
